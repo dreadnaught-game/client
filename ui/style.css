@@ -1,0 +1,31 @@
+h1 {
+  margin: auto;
+  text-align: center;
+  padding: 1rem;
+}
+#play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: "container__info" "grid";
+}
+
+#gameBoard {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  width: 400px;
+  height: 400px;
+  border: 1px solid black;
+}
+.coordinate {
+  border: 1px solid black;
+  transition: all 200ms;
+}
+
+.coordinate:hover {
+  background-color: blue;
+}
