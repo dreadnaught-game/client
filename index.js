@@ -65,12 +65,12 @@ const markCoordinate = (hitShip, [row, col]) => {
   const uiCoordinate = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
   console.log(hitShip);
   if (hitShip) {
-    // changed to red
+    // changed coordinate square to red
     uiCoordinate.classList.add('hit');
   } else {
+    // change coordinate square to black
     uiCoordinate.classList.add('miss');
   }
-  // change to black
 };
 
 const spaceIsOccupied = (fleet, coordinate) => {
@@ -85,9 +85,14 @@ const spaceIsOccupied = (fleet, coordinate) => {
   return isOccupied;
 };
 
+const hitShip = (gameState, [row, col]) => {
+  // Let's try to sink some ship here
+  console.log('inside hitShip');
+};
+
 const fireCannon = (gameState, [row, col]) => {
-  console.log(spaceIsOccupied(gameState.fleet, [row, col]));
   markCoordinate(spaceIsOccupied(gameState.fleet, [row, col]), [row, col]);
+  hitShip(gameState, [row, col]);
 
   // TODO: check if a space is occupied by a ship
   // TODO: keep track of the move
