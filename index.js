@@ -1,4 +1,114 @@
 // alert('hello');
-const Coordinate = /* html */ `<div class="coordinate" data-row="0" data-col="0"></div>`;
+const gameBoard = document.getElementById('gameBoard');
 
-document.getElementById('gameBoard').innerHTML = Coordinate;
+for (let i = 1; i < 11; i++) {
+  for (let j = 1; j < 11; j++) {
+    const coordinate = `<div class="coordinate" data-row="${i}" data-col="${j}"></div>`;
+    gameBoard.innerHTML += coordinate;
+  }
+}
+
+// TODO: JSON documentation
+// TODO: Populate board with ships at random non-overlapping locations
+
+// populate the game board
+// returns coordinates of all 5 ships
+const deployShips = () => {
+  /* Ship list:
+    1: 5 length - ship1
+    1: 4 length - ship2
+    2: 3 length - ship3 & ship4
+    1: 2 length - ship5
+    */
+  // contains occupied coords
+  // TODO: Implement randomization
+  // const occupied = {};
+  const fleet = [
+    // ship1
+    {
+      c1: [1, 2],
+      c2: [2, 2],
+      c3: [3, 2],
+      c4: [4, 2],
+      c5: [5, 2],
+    },
+    // ship2
+    {
+      c1: [10, 7],
+      c2: [10, 8],
+      c3: [10, 9],
+      c4: [10, 10],
+    },
+    // ship3
+    {
+      c1: [9, 4],
+      c2: [8, 4],
+      c3: [7, 4],
+    },
+    // ship4
+    {
+      c1: [3, 7],
+      c2: [3, 8],
+      c3: [3, 9],
+    },
+    // ship5
+    {
+      c1: [5, 8],
+      c2: [5, 9],
+    },
+  ];
+
+  return fleet;
+};
+
+const markCoordinate = (hitShip, coordinate) => {
+  if (hitShip) {
+    // changed to red
+    document.getElement;
+  }
+  // change to black
+};
+
+const spaceIsOccupied = (fleet, coordinate) => {
+  fleet.forEach(ship => {
+    Object.values(ship).forEach(value => {
+      if (value[0] === coordinate[0] && value[1] === coordinate[1]) {
+        return true;
+      }
+      return false;
+    });
+  });
+};
+
+const fireCannon = (gameState, [row, col]) => {
+  markCoordinate(spaceIsOccupied(gameState.fleet, [row, col]), [row, col]);
+
+  // TODO: check if a space is occupied by a ship
+  // TODO: keep track of the move
+  // TODO: check if a ship is sunk
+};
+
+const hoistSails = () => {
+  const gameState = {
+    sunkShips: 0,
+    fleet: deployShips(),
+  };
+  // TODO: listen for user input
+  const listOfCoords = document.querySelectorAll('.coordinate');
+  listOfCoords.forEach(coordinate => {
+    coordinate.addEventListener('click', () => {
+      fireCannon(gameState, [
+        parseInt(coordinate.dataset.row),
+        parseInt(coordinate.dataset.col),
+      ]);
+    });
+  });
+};
+
+// TODO: check if all ships are sunk (Win Condition)
+// TODO: gamestate tracker (OBJ/ARRAY)
+// Recursively call from register move -> Win Condition
+
+// TODO: Play Again --> populate board
+
+hoistSails();

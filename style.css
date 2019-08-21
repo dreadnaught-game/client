@@ -1,7 +1,15 @@
+body {
+  background-color: grey;
+}
 h1 {
   margin: auto;
   text-align: center;
   padding: 1rem;
+  color: aqua;
+}
+
+p {
+  color: aqua;
 }
 #play {
   display: flex;
@@ -28,4 +36,13 @@ h1 {
 
 .coordinate:hover {
   background-color: blue;
+  cursor: pointer;
+}
+
+.hit {
+  background: red;
+}
+
+.miss {
+  background-color: black;
 }
