@@ -61,26 +61,32 @@ const deployShips = () => {
   return fleet;
 };
 
-const markCoordinate = (hitShip, coordinate) => {
+const markCoordinate = (hitShip, [row, col]) => {
+  const uiCoordinate = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+  console.log(hitShip);
   if (hitShip) {
     // changed to red
-    document.getElement;
+    uiCoordinate.classList.add('hit');
+  } else {
+    uiCoordinate.classList.add('miss');
   }
   // change to black
 };
 
 const spaceIsOccupied = (fleet, coordinate) => {
+  let isOccupied = false;
   fleet.forEach(ship => {
     Object.values(ship).forEach(value => {
       if (value[0] === coordinate[0] && value[1] === coordinate[1]) {
-        return true;
+        isOccupied = true;
       }
-      return false;
     });
   });
+  return isOccupied;
 };
 
 const fireCannon = (gameState, [row, col]) => {
+  console.log(spaceIsOccupied(gameState.fleet, [row, col]));
   markCoordinate(spaceIsOccupied(gameState.fleet, [row, col]), [row, col]);
 
   // TODO: check if a space is occupied by a ship
@@ -97,10 +103,7 @@ const hoistSails = () => {
   const listOfCoords = document.querySelectorAll('.coordinate');
   listOfCoords.forEach(coordinate => {
     coordinate.addEventListener('click', () => {
-      fireCannon(gameState, [
-        parseInt(coordinate.dataset.row),
-        parseInt(coordinate.dataset.col),
-      ]);
+      fireCannon(gameState, [parseInt(coordinate.dataset.row), parseInt(coordinate.dataset.col)]);
     });
   });
 };
