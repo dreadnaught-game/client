@@ -1,6 +1,20 @@
 // alert('hello');
 const gameBoard = document.getElementById('gameBoard');
 
+// play music
+// this.sound = document.createElement("audio");
+// this.sound.src = src;
+// this.sound.setAttribute("preload", "auto");
+// this.sound.setAttribute("controls", "none");
+// this.sound.style.display = "none";
+// document.body.appendChild(this.sound);
+// this.play = function(){
+//   this.sound.play();
+// }
+// this.stop = function(){
+//   this.sound.pause();
+// }
+
 for (let i = 1; i < 11; i++) {
   for (let j = 1; j < 11; j++) {
     const coordinate = `<div class="coordinate" data-row="${i}" data-col="${j}"></div>`;

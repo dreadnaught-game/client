@@ -1,16 +1,50 @@
-body {
-  background-color: grey;
+@import url('https://fonts.googleapis.com/css?family=Della+Respira|Pirata+One&display=swap');
+
+:root {
+  --red: #B51A1B;
+  --brown: #905320;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.headline-banner {
+display: flex;
+align-items: center;
+margin-bottom: 30px;
+}
+
 h1 {
+  display: inline-block;
+  font-family: 'Pirata One', cursive;
+  font-size: 40px;
   margin: auto;
   text-align: center;
   padding: 1rem;
-  color: aqua;
+  color: white;
 }
 
-p {
-  color: aqua;
+h2, h3, h4, h5, h6, p, span, li, a {
+  font-family: 'Della Respira', serif;
+  color: white;
 }
+
+
+.rules-title {
+  margin-top: 0;
+}
+
 #play {
   display: flex;
   align-items: center;
@@ -25,13 +59,14 @@ p {
 #gameBoard {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 500px;
   border: 1px solid black;
 }
 .coordinate {
-  border: 1px solid black;
+  border: 1px solid white;
   transition: all 200ms;
+  background: #4A90E2;
 }
 
 .coordinate:hover {
@@ -40,9 +75,60 @@ p {
 }
 
 .hit {
-  background: red;
+  background: var(--red);
 }
 
 .miss {
   background-color: black;
+}
+
+.game-stats {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background: var(--brown);
+  border: 1px solid var(--brown);
+  padding: 10px;
+  margin: 0;
+}
+
+.controllers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+}
+
+.button-instruction-container {
+  display: flex;
+  align-items: center;
+}
+
+.button-instruction {
+  margin-left: 5px;
+}
+
+.action-button-container {
+  padding: 15px 0;
+}
+
+.action-button {
+  display: inline-block;
+  background: var(--red);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 15px;
+  min-width: 45%;
+  margin-right: 15px;
+  border-radius: 4px;
+}
+
+.pirate-penguin {
+  display: inline-block;
+}
+
+.game-rules-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

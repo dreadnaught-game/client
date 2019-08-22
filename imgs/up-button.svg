@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="51px" height="51px" viewBox="0 0 51 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Up-Button</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Game-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Battleships-Draft" transform="translate(-183.000000, -671.000000)">
+            <g id="Up-Button" transform="translate(183.000000, 671.000000)">
+                <rect id="Rectangle" fill="#D8D8D8" x="0" y="0" width="51" height="51" rx="4"></rect>
+                <text id="W" font-family="DellaRespira-Regular, Della Respira" font-size="20" font-weight="normal" letter-spacing="1.81318615" fill="#000000">
+                    <tspan x="10.50161" y="34">W</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

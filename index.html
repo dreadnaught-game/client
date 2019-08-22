@@ -1,28 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Dreadnaught</title>
-    <link rel="stylesheet" href="style.css" />
-    <script defer src="./index.js"></script>
-  </head>
-  <body>
-    <h1>Welcome Aboard The DREADNAUGHT, Commander</h1>
-    <div id="play"><button type="button">Play</button></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Dreadnaught</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="./index.js"></script>
+</head>
+
+<body>
+  <div>
+    <div class="headline-banner">
+      <img src="./imgs/pirate-penguin.svg" class="pirate-penguin" />
+      <h1>Welcome Aboard The DREADNAUGHT, Commander 💣</h1>
+    </div>
     <div class="container">
-      <div>
+      <div class="game-rules-container">
+        <h2 class="rules-title">Rules</h2>
+        <ol>
+          <li>Click play</li>
+          <li>Guess where the pirates are hiding</li>
+          <li>Game is won when all pirate ships are destroyed</li>
+        </ol>
+        <h2>Controls</h2>
         <p id="container__info">
           Sink all enemy ships! Use the mouse or the W,A,S,D keys to select a
           space. Then click on it or hit Enter to fire!
         </p>
+        <div class="controllers">
+          <div class="button-instruction-container">
+            <img src="./imgs/up-button.svg" alt="">
+            <span class="button-instruction">Move Up</span>
+          </div>
+          <div class="button-instruction-container">
+            <img src="./imgs/down-button.svg" alt="">
+            <span class="button-instruction">Move Down</span>
+          </div>
+          <div class="button-instruction-container">
+            <img src="./imgs/left-button.svg" alt="">
+            <span class="button-instruction">Move Left</span>
+          </div>
+          <div class="button-instruction-container">
+            <img src="./imgs/right-button.svg" alt="">
+            <span class="button-instruction">Move right</span>
+          </div>
+        </div>
+        <div class="action-button-container">
+          <button class="action-button">Play</button>
+          <button class="action-button">Reset</button>
+        </div>
       </div>
-      <div id="grid">
-        <div id="shipCount">Ships left:</div>
+      <div class="game-board-container">
+        <div class="game-stats">
+          <span>Shot tracker</span>
+          <div>
+            <span>6 Hits</span>
+            <span>4 Missed</span>
+          </div>
+        </div>
         <div id="gameBoard"></div>
-        <!-- <img src="./imgs/tenBytenGrid.jpg" alt="" /> -->
       </div>
     </div>
-  </body>
+
+  </div>
+  </div>
+
+</body>
+
 </html>
