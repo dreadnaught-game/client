@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Dreadnaught</title>
   <link rel="stylesheet" href="style.css" />
-  <script defer src="./index.js"></script>
+  <script defer type="module" src="./index.js"></script>
 </head>
 
 <body>
@@ -48,16 +48,16 @@
           </div>
         </div>
         <div class="action-button-container">
-          <button class="action-button">Play</button>
+          <button class="action-button" id="play-button">Play</button>
           <button class="action-button">Reset</button>
         </div>
       </div>
       <div class="game-board-container">
         <div class="game-stats">
-          <span>Shot tracker</span>
-          <div>
-            <span>6 Hits</span>
-            <span>4 Missed</span>
+          <span>Shot Tracker</span>
+          <div class="counters">
+            <span><img src="imgs/pirate-wheel.svg" class="hit-icon" /><span id="hit-counter">0</span> Hits</span>
+            <span><span class="miss-icon">X</span><span id="miss-counter">0</span> Missed</span>
           </div>
         </div>
         <div id="gameBoard"></div>

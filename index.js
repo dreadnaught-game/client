@@ -1,19 +1,10 @@
-// alert('hello');
-const gameBoard = document.getElementById('gameBoard');
+import Sound from './components/Sound.js';
 
-// play music
-// this.sound = document.createElement("audio");
-// this.sound.src = src;
-// this.sound.setAttribute("preload", "auto");
-// this.sound.setAttribute("controls", "none");
-// this.sound.style.display = "none";
-// document.body.appendChild(this.sound);
-// this.play = function(){
-//   this.sound.play();
-// }
-// this.stop = function(){
-//   this.sound.pause();
-// }
+const gameBoard = document.getElementById('gameBoard');
+const shipSound = new Sound('./audio/ship-at-bay.wav', true);
+const accordionSound = new Sound('./audio/pirate-accordion.wav', true, 0.6);
+const hitCounter = document.querySelector('#hit-counter');
+const missCounter = document.querySelector('#miss-counter');
 
 for (let i = 1; i < 11; i++) {
   for (let j = 1; j < 11; j++) {
@@ -77,11 +68,16 @@ const deployShips = () => {
 
 const markCoordinate = (hitShip, [row, col]) => {
   const uiCoordinate = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-  console.log(hitShip);
   if (hitShip) {
+    const hitSound = new Sound('./audio/cannon-hitting-ship.mp3', false, 0.7);
     // changed coordinate square to red
+    setTimeout(() => hitSound.play(), 600);
+    hitCounter.innerHTML = parseInt(hitCounter.innerHTML) + 1;
     uiCoordinate.classList.add('hit');
   } else {
+    const waterSplashSound = new Sound('./audio/water-splash.wav', false, 1);
+    missCounter.innerHTML = parseInt(missCounter.innerHTML) + 1;
+    setTimeout(() => waterSplashSound.play(), 600);
     // change coordinate square to black
     uiCoordinate.classList.add('miss');
   }
@@ -106,6 +102,8 @@ const hitShip = (gameState, [row, col]) => {
 
 const fireCannon = (gameState, [row, col]) => {
   markCoordinate(spaceIsOccupied(gameState.fleet, [row, col]), [row, col]);
+  const cannonFireSound = new Sound('./audio/cannon-fire.wav', false, 0.6);
+  cannonFireSound.play();
   hitShip(gameState, [row, col]);
 
   // TODO: check if a space is occupied by a ship
@@ -114,6 +112,9 @@ const fireCannon = (gameState, [row, col]) => {
 };
 
 const hoistSails = () => {
+  shipSound.play();
+  accordionSound.play();
+
   const gameState = {
     sunkShips: 0,
     fleet: deployShips(),
@@ -133,4 +134,7 @@ const hoistSails = () => {
 
 // TODO: Play Again --> populate board
 
-hoistSails();
+const playButton = document.querySelector('#play-button');
+playButton.addEventListener('click', () => {
+  hoistSails();
+});
