@@ -46,3 +46,7 @@ p {
 .miss {
   background-color: black;
 }
+
+.marked {
+  background-color: blue;
+}
